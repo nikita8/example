@@ -1,0 +1,14 @@
+<h1>Blog Posts</h1>
+<ul class="unstyled">
+<% @posts.each do |p| %>
+<li>
+	<h4>
+	<%= p.title %> 
+	</h4>
+	<p>
+		<%= link_to("Read", post_path(p.id))%> | <%= link_to("Edit", edit_post_path(p.id))%> | <%= link_to("Delete",post_path(p.id),:method =>:delete, :confirm => "This post will be deleted, are you really really sure?")%> 
+	</p>
+</li>
+<% end %>
+</ul>
+<%=link_to( "Create New Post",new_post_path ) %>
